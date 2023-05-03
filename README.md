@@ -52,7 +52,21 @@
     <p>
       To use the program, simply run the main.py file in the src directory. The program will prompt the user to select the source of the articles, the number of articles to scrape, and the unsupervised learning algorithm to use. After the program finishes running, the user can find the output files in the data directory.
     </p>
-    
+    <section>
+  <h2>Log File</h2>
+  <p>The main file generates a log file that contains information about the program's progress and any errors that occur during execution. The log file is located in the same directory as the main file and has the name <code>log.txt</code>. Here's an example of what the log file might look like:</p>
+  <pre>
+[2023-05-03 13:52:17] INFO: Starting program
+[2023-05-03 13:52:17] INFO: Loading Wikipedia corpus
+[2023-05-03 13:52:20] INFO: Preprocessing text data
+[2023-05-03 13:52:30] INFO: Training unsupervised learning algorithm
+[2023-05-03 13:53:12] INFO: Saving checkpoint
+[2023-05-03 13:53:12] INFO: Program complete
+
+  </pre>
+  <p>In this example, the log file shows that the program started at 13:52:17 on May 3, 2023, and finished at 13:53:12. It also shows that the program loaded a Wikipedia corpus, preprocessed the text data, and trained an unsupervised learning algorithm. Finally, it shows that the program saved a checkpoint and completed successfully. If any errors occurred during execution, they would also be logged in the file with a corresponding error message and timestamp.</p>
+</section>
+
   
 
    <h2>License</h2>
