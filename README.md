@@ -1,9 +1,15 @@
 
-<h1>Unsupervised Learning News</h1>
-
-<p>This is a project that utilizes unsupervised learning to analyze text corpora obtained from Wikipedia and other sources. The program scrapes articles from Wikipedia or a news source, preprocesses the text, and then trains an unsupervised learning algorithm to analyze the data. The program can be paused and resumed, allowing for the user to continue training the algorithm at a later time.</p>
-
-   <h2>Requirements</h2>
+   <!DOCTYPE html>
+<html>
+  <head>
+    <title>Unsupervised Learning News</title>
+  </head>
+  <body>
+    <h1>Unsupervised Learning News</h1>
+    <p>
+      This is a project that utilizes unsupervised learning to analyze text corpora obtained from Wikipedia and other sources. The program scrapes articles from Wikipedia or a news source, preprocesses the text, and then trains an unsupervised learning algorithm to analyze the data. The program can be paused and resumed, allowing for the user to continue training the algorithm at a later time.
+    </p>
+     <h2>Requirements</h2>
     <ul>
         <li>Python 3.6+</li>
         <li>NLTK</li>
@@ -11,24 +17,47 @@
         <li>gensim</li>
         <li>Wikipedia API</li>
     </ul>
-
-   <h2>Files</h2>
+    <h2>Project Structure</h2>
+    <pre>
+    project_name/
+    ├── data/
+    │   ├── corpus/
+    │   │   ├── wikipedia/
+    │   │   └── ...
+    │   └── checkpoint/
+    ├── src/
+    │   ├── preprocessing.py
+    │   ├── unsupervised_learning.py
+    │   ├── ...
+    │   └── main.py
+    ├── README.md
+    └── ...
+    </pre>
+    <h2>Description</h2>
+    <p>
+      The Unsupervised Learning News project aims to help researchers and data scientists who are working with text data from news sources. The program provides an easy-to-use tool that can scrape news articles from multiple sources, preprocess the text, and then analyze it using unsupervised learning algorithms.
+    </p>
+    <h2>Utilities</h2>
+    <p>
+      The program provides the following utilities:
+    </p>
     <ul>
-        <li><code>text_corpus.py</code>: Defines the <code>TextCorpus</code> class for reading and cleaning text from a file.</li>
-        <li><code>preprocessing.py</code>: Defines the <code>Preprocessing</code> class for removing punctuation and stemming words.</li>
-        <li><code>unsupervised_learning.py</code>: Defines the <code>UnsupervisedLearning</code> class for training unsupervised learning models using Latent Dirichlet Allocation (LDA), Non-negative Matrix Factorization (NMF), or Word2Vec.</li>
-        <li><code>checkpoint.py</code>: Defines the <code>Checkpoint</code> class for saving and loading models.</li>
-        <li><code>logging.py</code>: Defines the <code>Logging</code> class for logging progress and errors.</li>
-        <li><code>main.py</code>: The main program that generates articles, preprocesses the text, trains the unsupervised learning model, and logs progress.</li>
+      <li>Scraping articles from multiple sources (currently supports Wikipedia and news websites)</li>
+      <li>Preprocessing text data to remove stopwords, punctuations, and other irrelevant information</li>
+      <li>Training unsupervised learning algorithms such as LDA and LSA to cluster similar articles together</li>
+      <li>Pausing and resuming the training process, allowing the user to continue from where they left off</li>
+      <li>Outputting the results in a user-friendly format, such as HTML or PDF</li>
     </ul>
-
-   <h2>Usage</h2>
-    <p>To run the program, simply execute the <code>main.py</code> file.</p>
-
-   <code>$ python main.py</code>
-
-   <p>The program will generate a maximum of 1000 articles and perform unsupervised learning on the corpus. The program will save its progress after each article and can be resumed if interrupted.</p>
+    <h2>How to Use</h2>
+    <p>
+      To use the program, simply run the main.py file in the src directory. The program will prompt the user to select the source of the articles, the number of articles to scrape, and the unsupervised learning algorithm to use. After the program finishes running, the user can find the output files in the data directory.
+    </p>
+    
+  
 
    <h2>License</h2>
    <p>This project is licensed under the MIT License - see the <code>LICENSE</code> file for details.</p>
+  </body>
+</html>
+
 
