@@ -2,7 +2,7 @@
    <!DOCTYPE html>
 <html>
   <head>
-    <title>Unsupervised Learning News</title>
+
   </head>
   <body>
     <h1>Unsupervised Learning News</h1>
