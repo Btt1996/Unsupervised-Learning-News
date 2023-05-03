@@ -52,6 +52,22 @@
     <p>
       To use the program, simply run the main.py file in the src directory. The program will prompt the user to select the source of the articles, the number of articles to scrape, and the unsupervised learning algorithm to use. After the program finishes running, the user can find the output files in the data directory.
     </p>
+    <h2>Clone this Repository</h2>
+
+<p>To clone this repository and create the necessary file structure, run the following commands in your terminal:</p>
+
+<pre><code>git clone https://github.com/Btt1996/Unsupervised-Learning-News.git
+cd Unsupervised-Learning-News
+mkdir -p data/corpus/wikipedia
+mkdir -p checkpoint
+</code></pre>
+
+<p>These commands will clone the repository to your local machine and create the necessary file structure for storing the data corpus and model checkpoints.</p>
+
+<p>Once you have created the file structure, you can start running the program by running the <code>main.py</code> file.</p>
+
+<p>For more information on how to use the program, please refer to the <code>README.md</code> file or visit the <a href="https://github.com/Btt1996/Unsupervised-Learning-News">GitHub repository</a>.</p>
+
     <section>
   <h2>Log File</h2>
   <p>The main file generates a log file that contains information about the program's progress and any errors that occur during execution. The log file is located in the same directory as the main file and has the name <code>log.txt</code>. Here's an example of what the log file might look like:</p>
