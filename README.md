@@ -68,7 +68,6 @@ mkdir -p checkpoint
 
 <p>For more information on how to use the program, please refer to the <code>README.md</code> file or visit the <a href="https://github.com/Btt1996/Unsupervised-Learning-News">GitHub repository</a>.</p>
 
-    <section>
   <h2>Log File</h2>
   <p>The main file generates a log file that contains information about the program's progress and any errors that occur during execution. The log file is located in the same directory as the main file and has the name <code>log.txt</code>. Here's an example of what the log file might look like:</p>
   <pre>
