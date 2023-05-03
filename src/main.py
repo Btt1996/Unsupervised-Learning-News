@@ -1,9 +1,10 @@
 import random
 import wikipedia
-from preprocessing import preprocess_text
-from unsupervised_learning import train_model
-from checkpoint import save_checkpoint, load_checkpoint
-from logging import log_progress
+from text_corpus import TextCorpus
+from preprocessing import Preprocessing
+from unsupervised_learning import UnsupervisedLearning
+from checkpoint import Checkpoint
+from logging import Logging
 
 # Define the sources for articles
 article_sources = ['en.wikipedia.org', 'simple.wikipedia.org', 'news.google.com']
@@ -12,7 +13,7 @@ article_sources = ['en.wikipedia.org', 'simple.wikipedia.org', 'news.google.com'
 checkpoint_file = 'checkpoint.pkl'
 
 # Load the checkpoint if it exists
-current_state = load_checkpoint(checkpoint_file)
+current_state = Checkpoint(checkpoint_file).load()
 
 # Initialize the corpus and model
 corpus = current_state['corpus'] if 'corpus' in current_state else []
@@ -41,29 +42,37 @@ for i in range(max_articles):
     except wikipedia.exceptions.DisambiguationError:
         continue
     
-    # Preprocess the article content
-    processed_content = preprocess_text(article_content)
+    # Initialize the TextCorpus class and preprocess the article content
+    text_corpus = TextCorpus(path=None)
+    processed_content = ' '.join(text_corpus.clean_text(text_corpus.read_text(article_content)))
+    
+    # Initialize the Preprocessing class and remove punctuations and perform stemming
+    preprocessing = Preprocessing()
+    processed_content = preprocessing.remove_punctuations(processed_content)
+    processed_content = ' '.join(preprocessing.stemming(processed_content.split()))
     
     # Add the processed content to the corpus
     corpus.append(processed_content)
     
     # Train the unsupervised learning model on the corpus
-    model = train_model(corpus)
+    unsupervised_learning = UnsupervisedLearning(algorithm='LDA')
+    model = unsupervised_learning.train(corpus)
     
     # Save the current state of the learning process
-    save_checkpoint(checkpoint_file, corpus=corpus, model=model)
+    Checkpoint(checkpoint_file).save({'corpus': corpus, 'model': model})
     
-    # Log the progress
-    log_progress(i, max_articles)
-
+    # Initialize the Logging class and log the progress
+    logging = Logging()
+    logging.log_info(f"{i+1} articles processed out of {max_articles}.")
+    
     # Pause the program if the user presses Ctrl+C
     try:
         pass
     except KeyboardInterrupt:
-        print('Program paused. Press Ctrl+C to resume.')
+        logging.log_info('Program paused. Press Ctrl+C to resume.')
         while True:
             try:
                 pass
             except KeyboardInterrupt:
-                print('Program resumed.')
+                logging.log_info('Program resumed.')
                 break
